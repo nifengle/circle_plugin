@@ -68,7 +68,6 @@ def is_own_branch(branch):
 def user_builds(branches):
     builds = []
 
-    # Show all builds, not just the most recent one
     for name, info in branches.iteritems():
         if len(info['running_builds']) > 0:
             running_build = info['running_builds'][0]
