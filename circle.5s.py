@@ -15,7 +15,9 @@ from operator import itemgetter
 # Go to circleci.com/account/api and create an API token
 # Paste that value in here. BitBar can't seem to access environment
 # variables. See https://github.com/matryer/bitbar/issues/88
-circle_token = ''
+home_dir = os.path.expanduser('~')
+token_path = '%s/.circle' % (home_dir)
+circle_token = open(token_path, 'r').read().strip()
 
 base_url = 'https://circleci.com/api/v1'
 git_username = os.popen('git config user.username').readline().strip()
