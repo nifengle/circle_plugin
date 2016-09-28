@@ -10,7 +10,7 @@ NOTE: This used to use the `recent-builds` Circle API endpoint, but that only qu
 
 2. Move the `circle.5s.py` file to the plugin folder (DON’T MOVE THIS README THERE)
 
-3. Edit `circle.5s.py` file and add in your Circle CI API token (you can get one here https://circleci.com/account/api)
+3. Create a file called `.circle` in your home directory and paste your CircleCI token in there
 
 4. Add your GitHub username (the one you use to login) to your gitconfig under [user], e.g.
     ```
