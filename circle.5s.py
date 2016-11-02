@@ -75,7 +75,7 @@ def user_builds(branches):
             builds.append(running_build)
 
         if 'recent_builds' in info:
-            for build in sorted(info['recent_builds'], key = itemgetter('added_at'), reverse = True):
+            for build in sorted(info['recent_builds'], key = itemgetter('pushed_at'), reverse = True):
                 build['branch'] = name
                 build['reponame'] = info['reponame']
                 builds.append(build)
@@ -101,7 +101,7 @@ if __name__ == '__main__':
 
     user_branches = user_branches()
     user_builds = user_builds(user_branches)
-    latest_builds = sorted(user_builds, key = itemgetter('added_at'), reverse = True)
+    latest_builds = sorted(user_builds, key = itemgetter('pushed_at'), reverse = True)
     builds = latest_builds[:10]
     if len(builds) == 0:
         print 'No Builds'
