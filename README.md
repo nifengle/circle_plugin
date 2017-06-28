@@ -1,14 +1,14 @@
-##About##
+## About
 
 This is a plugin I wrote to monitor my Circle builds from my menu bar like a lazy person. It used to be better written, but it didn’t really work well with the number of builds that are run here, so I hacked together an update quickly. Hope you find it helpful.
 
 NOTE: This used to use the `recent-builds` Circle API endpoint, but that only queries the 30 most recent builds. Given the number of builds run at UT daily, this would pretty much ensure no one ever saw their builds in Bitbar. I rewrote the script to use the `projects` endpoint instead. This has the side effect that every time a build of master is being run, it'll show up for everyone who has contributed to that project. Not necessarily a bad thing, we can all keep an eye on master.
 
-##Preview##
+## Preview
 
 ![screenshot](screenshot.png)
 
-##Installation##
+## Installation
 
 1. Download and install Bitbar: https://github.com/matryer/bitbar (you’ll be asked to create a folder for your bitbar plugins during install)
 
