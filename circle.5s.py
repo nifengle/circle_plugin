@@ -68,7 +68,7 @@ def user_builds(branches):
     builds = []
 
     for name, info in branches.iteritems():
-        if len(info['running_builds']) > 0:
+        if len(info.get('running_builds', [])) > 0:
             running_build = info['running_builds'][0]
             running_build['branch'] = name
             running_build['reponame'] = info['reponame']
