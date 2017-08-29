@@ -61,7 +61,7 @@ def user_branches():
     return branches
 
 def is_own_branch(branch):
-    committer_usernames = branch['pusher_logins']
+    committer_usernames = branch.get('pusher_logins', '')
     return git_username in committer_usernames
 
 def user_builds(branches):
