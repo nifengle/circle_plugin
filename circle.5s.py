@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 # <bitbar.title>CircleCI Build Status</bitbar.title>
-# <bitbar.version>v1.0</bitbar.version>
+# <bitbar.version>v1.1</bitbar.version>
 # <bitbar.author>Patrick Vilhena</bitbar.author>
 # <bitbar.author.github>Nifengle</bitbar.author.github>
 # <bitbar.desc>Shows the status of your CircleCI builds.</bitbar.desc>
@@ -11,12 +11,13 @@ import os
 import urllib2
 import json
 from operator import itemgetter
+from dateutil.parser import parse
 
 home_dir = os.path.expanduser('~')
 token_path = '%s/.circle' % (home_dir)
 circle_token = open(token_path, 'r').read().strip()
 
-base_url = 'https://circleci.com/api/v1'
+base_url = 'https://circleci.com/api/v1.1'
 git_username = os.popen('git config user.username').readline().strip()
 
 status_colors = {
@@ -101,7 +102,7 @@ if __name__ == '__main__':
 
     user_branches = user_branches()
     user_builds = user_builds(user_branches)
-    latest_builds = sorted(user_builds, key = itemgetter('build_num'), reverse = True)
+    latest_builds = sorted(user_builds, key = lambda b:parse(b['pushed_at']), reverse = True)
     builds = latest_builds[:10]
     if len(builds) == 0:
         print 'No Builds'
