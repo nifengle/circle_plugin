@@ -54,6 +54,9 @@ def user_branches():
     branches = {}
     for project in projects:
         for branch_name, branch_info in project['branches'].iteritems():
+            if branch_name == 'master':
+                branch_name = 'master (%s)' % project['reponame']
+
             if is_own_branch(branch_info):
                 branch_info['reponame'] = project['reponame']
                 branch_name = urllib2.unquote(branch_name).encode('utf-8')
